@@ -4,8 +4,9 @@ const colors = {
   brand: {
     900: "#1E252B",
     800: "#333333",
-    700: "#2a69ac",
+    700: "#F3F5F6",
   },
+  bgWhite: "#FFFFFF",
 };
 
 const theme = extendTheme({ colors });
