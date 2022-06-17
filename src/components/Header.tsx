@@ -15,6 +15,7 @@ function Header({ name, imageUrl }: IProps) {
       justifyContent="space-between"
       p={5}
       boxShadow="md"
+      backgroundColor="bgWhite"
     >
       <Image w={50} src={logo} />
       <Flex alignItems="center" gap={5}>

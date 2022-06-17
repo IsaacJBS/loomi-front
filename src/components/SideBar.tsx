@@ -26,6 +26,7 @@ function SideBar() {
       w={20}
       h={650}
       alignItems="center"
+      backgroundColor="bgWhite"
     >
       <Box borderBottom="1px solid #E0E0E0" mb={4}>
         <CustomSidebarButton disabled imageUrl={menu} />
