@@ -16,5 +16,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src/components", "src/custom.d.ts"]
+  "include": [
+    "src/components",
+    "src/custom.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "images.d.ts"
+  ]
 }
