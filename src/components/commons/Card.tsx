@@ -5,7 +5,14 @@ import Tag from "./Tag";
 function Card() {
   return (
     <Flex>
-      <Box w={220} h={160} borderRadius="15px" p={3} backgroundColor="bgWhite">
+      <Box
+        w={220}
+        h={160}
+        borderRadius="15px"
+        p={3}
+        backgroundColor="bgWhite"
+        boxShadow="sm"
+      >
         <Text fontFamily="body" fontWeight="bold">
           Ticket médio últimas 24h{" "}
         </Text>

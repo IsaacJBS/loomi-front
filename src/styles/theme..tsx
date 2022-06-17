@@ -8,6 +8,8 @@ const colors = {
   },
   main: "#5A4CA7",
   bgWhite: "#FFFFFF",
+  title: "#4E5D66",
+  secondTitle: "#5A4CA7",
 };
 
 const fonts = {

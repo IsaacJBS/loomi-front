@@ -1,11 +1,11 @@
+import "@fontsource/nunito-sans";
+import "@fontsource/ubuntu";
 import React from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
-import Card from "../components/commons/Card";
+import Carousel from "../components/Carousel";
 import backgroundImg from "../assets/background-img.svg";
-import "@fontsource/nunito-sans";
-import "@fontsource/ubuntu";
 
 function Home() {
   return (
@@ -17,8 +17,10 @@ function Home() {
         />
         <Flex gap={10} mt={10}>
           <SideBar />
-          <Flex>
-            <Card />
+          <Flex flexDirection="column">
+            <Carousel name="Inicio" />
+            <Carousel name="Dashboard de vendas" />
+            <Carousel name="Funil de conversão" />
           </Flex>
         </Flex>
       </Box>
