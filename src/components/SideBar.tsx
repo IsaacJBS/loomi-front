@@ -18,7 +18,6 @@ import CustomSidebarButton from "./commons/SidebarButton";
 function SideBar() {
   return (
     <Flex
-      mt={10}
       ml={3}
       flexDirection="column"
       p={1}

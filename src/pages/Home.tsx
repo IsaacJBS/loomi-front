@@ -7,8 +7,6 @@ import backgroundImg from "../assets/background-img.svg";
 import "@fontsource/nunito-sans";
 import "@fontsource/ubuntu";
 
-// type Props = {}
-
 function Home() {
   return (
     <Box backgroundImage={backgroundImg}>
@@ -17,7 +15,7 @@ function Home() {
           name="Eduardo"
           imageUrl="https://mir-s3-cdn-cf.behance.net/projects/404/d4ba0348411353.Y3JvcCw3MDYsNTUyLDI3LDA.png"
         />
-        <Flex>
+        <Flex gap={10} mt={10}>
           <SideBar />
           <Flex>
             <Card />
