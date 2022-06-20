@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
-import Card from "./commons/Card";
+// import Card from "./commons/Card";
+import CardChart from "./commons/CardChart";
 
 interface IProps {
   name: string;
@@ -19,10 +20,11 @@ function Carousel({ name }: IProps) {
         {name}
       </Text>
       <Flex gap={5}>
+        <CardChart title="Pedidos por mês" />
+        {/* <Card />
         <Card />
         <Card />
-        <Card />
-        <Card />
+        <Card /> */}
       </Flex>
     </Flex>
   );
