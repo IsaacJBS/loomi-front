@@ -4,6 +4,7 @@ import Chart from "react-apexcharts";
 import CardChart from "../commons/CardChart";
 import axios from "../../api/axios";
 import CustomSpinner from "../../helpers/CustomSpinner";
+import months from "../../utils/months";
 
 const url = "/sells-per-month";
 
@@ -49,20 +50,7 @@ function ChartSalesPerMonth() {
             },
             colors: ["#000"],
             xaxis: {
-              categories: [
-                "JAN",
-                "FEV",
-                "MAR",
-                "ABR",
-                "MAI",
-                "JUN",
-                "JUL",
-                "AGO",
-                "SET",
-                "OUT",
-                "NOV",
-                "DEZ",
-              ],
+              categories: months,
             },
           }}
           series={[
