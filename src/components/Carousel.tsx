@@ -1,13 +1,12 @@
 import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
-// import Card from "./commons/Card";
-import CardChart from "./commons/CardChart";
 
 interface IProps {
   name: string;
+  children: React.ReactNode;
 }
 
-function Carousel({ name }: IProps) {
+function Carousel({ name, children }: IProps) {
   return (
     <Flex flexDirection="column" mt={name === "Inicio" ? "0" : "40px"}>
       <Text
@@ -19,13 +18,7 @@ function Carousel({ name }: IProps) {
       >
         {name}
       </Text>
-      <Flex gap={5}>
-        <CardChart title="Pedidos por mês" />
-        {/* <Card />
-        <Card />
-        <Card />
-        <Card /> */}
-      </Flex>
+      <Flex gap={5}>{children}</Flex>
     </Flex>
   );
 }

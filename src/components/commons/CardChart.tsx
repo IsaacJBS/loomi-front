@@ -4,10 +4,10 @@ import { Box, Flex, Select, Text } from "@chakra-ui/react";
 
 interface IProps {
   title: string;
-  // children: React.ReactNode;
+  children: React.ReactNode;
 }
 
-function CardChart({ title }: IProps) {
+function CardChart({ title, children }: IProps) {
   return (
     <Box w={500} h={400} bgColor="bgWhite" p={4}>
       <Flex justifyContent="space-between" alignItems="center">
@@ -15,7 +15,7 @@ function CardChart({ title }: IProps) {
         <Select w={150} placeholder="ano" bgColor="brand.700">
           <option value="">2022</option>
         </Select>
-        <Box />
+        {children}
       </Flex>
     </Box>
   );

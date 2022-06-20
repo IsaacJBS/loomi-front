@@ -6,6 +6,8 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Carousel from "../components/Carousel";
 import backgroundImg from "../assets/background-img.svg";
+import ChartSalesPerMonth from "../components/ChartSalesPerMonth";
+import Card from "../components/commons/Card";
 
 function Home() {
   return (
@@ -18,9 +20,12 @@ function Home() {
         <Flex gap={10} mt={10}>
           <SideBar />
           <Flex flexDirection="column">
-            <Carousel name="Inicio" />
-            <Carousel name="Dashboard de vendas" />
-            <Carousel name="Funil de conversão" />
+            <Carousel name="Inicio">
+              <Card />
+            </Carousel>
+            <Carousel name="Dashboard de vendas">
+              <ChartSalesPerMonth />
+            </Carousel>
           </Flex>
         </Flex>
       </Box>
