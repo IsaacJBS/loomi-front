@@ -4,40 +4,39 @@ import CardChart from "../commons/CardChart";
 import axios from "../../api/axios";
 import CustomSpinner from "../../helpers/CustomSpinner";
 import months from "../../utils/months";
-import currencyConverter from "../../utils/currencyConverter";
 
-const profitUrl = "/profit-expectation-per-month";
-const realUrl = "/profit-per-month";
+const orderMadeUrl = "/orders-per-month";
+const orderCancelledUrl = "/canceled-orders-per-month";
 
-function ProfitExpectation() {
-  const [real, setReal] = useState<any>();
-  const [profit, setProfit] = useState<any>();
+function ChartOrders() {
+  const [made, setMade] = useState<any>();
+  const [cancelled, setCancelled] = useState<any>();
   const [loading, setLoading] = useState(false);
 
-  async function getProfit() {
-    const valuesProfit: number[] = [];
+  async function getOrdersMade() {
+    const ordersMade: number[] = [];
     try {
       setLoading(true);
-      const response = await axios.get(profitUrl);
+      const response = await axios.get(orderMadeUrl);
       const dataResponse = await response.data;
       dataResponse.map((item: any) => {
-        return valuesProfit.push(item.value);
+        return ordersMade.push(item.value);
       });
-      setProfit(valuesProfit);
+      setMade(ordersMade);
     } catch (error) {
       console.log(error);
     }
   }
 
-  async function getReal() {
-    const valuesReal: number[] = [];
+  async function getCancelledOrders() {
+    const cancelledOrders: number[] = [];
     try {
-      const response = await axios.get(realUrl);
+      const response = await axios.get(orderCancelledUrl);
       const dataResponse = await response.data;
       dataResponse.map((item: any) => {
-        return valuesReal.push(item.value);
+        return cancelledOrders.push(item.value);
       });
-      setReal(valuesReal);
+      setCancelled(cancelledOrders);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -45,8 +44,8 @@ function ProfitExpectation() {
   }
 
   useEffect(() => {
-    getProfit();
-    getReal();
+    getOrdersMade();
+    getCancelledOrders();
   }, []);
 
   return (
@@ -63,24 +62,17 @@ function ProfitExpectation() {
             xaxis: {
               categories: months,
             },
-            yaxis: {
-              labels: {
-                formatter(value) {
-                  return currencyConverter(value);
-                },
-              },
-            },
           }}
           series={[
             {
-              name: "Expectativa",
-              data: profit,
-              color: "#F78899",
+              name: "Realizados",
+              data: made,
+              color: "#109E8E",
             },
             {
-              name: "Real",
-              data: real,
-              color: "#9FD8D5",
+              name: "Cancelados",
+              data: cancelled,
+              color: "#F18F7F",
             },
           ]}
           type="bar"
@@ -92,4 +84,4 @@ function ProfitExpectation() {
   );
 }
 
-export default ProfitExpectation;
+export default ChartOrders;
