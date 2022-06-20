@@ -7,6 +7,7 @@ import SideBar from "../components/SideBar";
 import Carousel from "../components/Carousel";
 import backgroundImg from "../assets/background-img.svg";
 import ChartSalesPerMonth from "../components/charts/ChartSalesPerMonth";
+import ProfitExpectation from "../components/charts/ProfitExpectation";
 import Card from "../components/commons/Card";
 
 function Home() {
@@ -25,6 +26,7 @@ function Home() {
             </Carousel>
             <Carousel name="Dashboard de vendas">
               <ChartSalesPerMonth />
+              <ProfitExpectation />
             </Carousel>
           </Flex>
         </Flex>
