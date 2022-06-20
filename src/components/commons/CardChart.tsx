@@ -15,8 +15,10 @@ function CardChart({ title, children }: IProps) {
         <Select w={150} placeholder="ano" bgColor="brand.700">
           <option value="">2022</option>
         </Select>
-        {children}
       </Flex>
+      <Box alignSelf="center" mt={3}>
+        {children}
+      </Box>
     </Box>
   );
 }

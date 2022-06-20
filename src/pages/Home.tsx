@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Carousel from "../components/Carousel";
 import backgroundImg from "../assets/background-img.svg";
-import ChartSalesPerMonth from "../components/ChartSalesPerMonth";
+import ChartSalesPerMonth from "../components/charts/ChartSalesPerMonth";
 import Card from "../components/commons/Card";
 
 function Home() {
