@@ -18,8 +18,8 @@ function CardSessions() {
       const formatted: any = responseData[0];
       setValues(formatted.value);
       setGrowths(formatted.growth);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      throw new Error(error);
     } finally {
       setLoading(false);
     }
