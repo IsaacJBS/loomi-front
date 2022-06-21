@@ -31,7 +31,7 @@ function CardCheckoutShipping() {
 
   return (
     <Card
-      title="Checkout - E-mail"
+      title="Checkout - Entrega"
       text="em relação a julho"
       overdue={false}
       bold={false}

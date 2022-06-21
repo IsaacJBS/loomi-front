@@ -4,16 +4,11 @@ import React from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
-import Carousel from "../components/Carousel";
 import backgroundImg from "../assets/background-img.svg";
-import ChartSalesPerMonth from "../components/charts/ChartSalesPerMonth";
-import ProfitExpectation from "../components/charts/ChartProfitExpectation";
-// import ChartOrders from "../components/charts/ChartOrders";
-import CardAverageTicket from "../components/cards/CardAverageTicket";
-import CardAverageMonthly from "../components/cards/CardAverageMonthly";
-import CardOrdersMonth from "../components/cards/CardOrdersMonth";
-import CardProductsSold from "../components/cards/CardProductsSold";
+
+import Dashboard from "../components/sections/Dashboard";
 import ConversionTunnel from "../components/sections/ConversionTunnel";
+import Beginning from "../components/sections/Beginning";
 
 function Home() {
   return (
@@ -26,17 +21,8 @@ function Home() {
         <Flex gap={10} mt={10}>
           <SideBar />
           <Flex flexDirection="column">
-            <Carousel name="Inicio">
-              <CardAverageTicket />
-              <CardAverageMonthly />
-              <CardOrdersMonth />
-              <CardProductsSold />
-            </Carousel>
-            <Carousel name="Dashboard de vendas">
-              <ChartSalesPerMonth />
-              <ProfitExpectation />
-              {/* <ChartOrders /> */}
-            </Carousel>
+            <Beginning />
+            <Dashboard />
             <ConversionTunnel />
           </Flex>
         </Flex>

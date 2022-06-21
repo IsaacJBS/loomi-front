@@ -34,7 +34,7 @@ function CardAverageMonthly() {
     <Card
       title="Ticket médio mensal"
       text="em relação a julho"
-      overdue={false}
+      overdue
       bold
       semiBold={false}
       value={values}

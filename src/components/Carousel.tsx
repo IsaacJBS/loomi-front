@@ -18,7 +18,9 @@ function Carousel({ name, children }: IProps) {
       >
         {name}
       </Text>
-      <Flex gap={5}>{children}</Flex>
+      <Flex gap={5} flexWrap="wrap">
+        {children}
+      </Flex>
     </Flex>
   );
 }
