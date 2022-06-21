@@ -6,9 +6,9 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import backgroundImg from "../assets/background-img.svg";
 
-import Dashboard from "../components/sections/Dashboard";
-import ConversionTunnel from "../components/sections/ConversionTunnel";
-import Beginning from "../components/sections/Beginning";
+// import Dashboard from "../components/sections/Dashboard";
+// import ConversionTunnel from "../components/sections/ConversionTunnel";
+// import Beginning from "../components/sections/Beginning";
 import UserPerfil from "../components/sections/UserPerfil";
 
 function Home() {
@@ -22,9 +22,9 @@ function Home() {
         <Flex gap={10} mt={10}>
           <SideBar />
           <Flex flexDirection="column">
-            <Beginning />
+            {/* <Beginning />
             <Dashboard />
-            <ConversionTunnel />
+            <ConversionTunnel /> */}
             <UserPerfil />
           </Flex>
         </Flex>

@@ -24,8 +24,8 @@ function ProfitExpectation() {
         return valuesProfit.push(item.value);
       });
       setProfit(valuesProfit);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      throw new Error(error);
     }
   }
 

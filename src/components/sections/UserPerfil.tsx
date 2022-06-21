@@ -1,10 +1,11 @@
 import React from "react";
 import Carousel from "../Carousel";
+import ChartTransactions from "../charts/ChartTransactions";
 
 function UserPerfil() {
   return (
     <Carousel name="Perfil do usuário">
-      <h1>oi</h1>
+      <ChartTransactions />
     </Carousel>
   );
 }
