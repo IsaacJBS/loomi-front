@@ -13,6 +13,7 @@ import CardAverageTicket from "../components/cards/CardAverageTicket";
 import CardAverageMonthly from "../components/cards/CardAverageMonthly";
 import CardOrdersMonth from "../components/cards/CardOrdersMonth";
 import CardProductsSold from "../components/cards/CardProductsSold";
+import ConversionTunnel from "../components/sections/ConversionTunnel";
 
 function Home() {
   return (
@@ -36,6 +37,7 @@ function Home() {
               <ProfitExpectation />
               {/* <ChartOrders /> */}
             </Carousel>
+            <ConversionTunnel />
           </Flex>
         </Flex>
       </Box>
