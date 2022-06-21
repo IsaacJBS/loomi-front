@@ -3,9 +3,9 @@ import Card from "../commons/Card";
 import axios from "../../api/axios";
 import currencyConverter from "../../utils/currencyConverter";
 
-const averageTicketUrl = "/avg-ticket-day";
+const monthlyTicketUrl = "/avg-ticket-month";
 
-function CardAverageTicket() {
+function CardAverageMonthly() {
   const [values, setValues] = useState<string>("");
   const [growths, setGrowths] = useState<string>("");
 
@@ -14,7 +14,7 @@ function CardAverageTicket() {
   async function getAverageTicket() {
     try {
       setLoading(true);
-      const response = await axios.get(averageTicketUrl);
+      const response = await axios.get(monthlyTicketUrl);
       const { value, growth } = response.data;
       const formmatedValue = currencyConverter(value);
       setValues(formmatedValue);
@@ -31,8 +31,8 @@ function CardAverageTicket() {
 
   return (
     <Card
-      title="Ticket médio últimas 24h"
-      text="em relação a ontem"
+      title="Ticket médio mensal"
+      text="em relação a julho"
       overdue={false}
       bold
       semiBold={false}
@@ -45,4 +45,4 @@ function CardAverageTicket() {
   );
 }
 
-export default CardAverageTicket;
+export default CardAverageMonthly;

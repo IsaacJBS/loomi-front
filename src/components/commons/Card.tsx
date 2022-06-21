@@ -5,7 +5,7 @@ import CustomSpinner from "../../helpers/CustomSpinner";
 
 interface IProps {
   title: string;
-  text: string;
+  text: string | null;
   overdue: boolean;
   bold: boolean;
   semiBold: boolean;

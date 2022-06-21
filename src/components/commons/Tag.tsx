@@ -18,7 +18,7 @@ function Tag({ text, color, percent }: IProps) {
       borderRadius="15px"
       textColor={color}
     >
-      {percent ? `+ ${text} %` : `há ${text} dias`}
+      {percent ? `${text} %` : `há ${text} dias`}
     </Text>
   );
 }

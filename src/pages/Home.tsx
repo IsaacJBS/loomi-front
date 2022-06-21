@@ -10,6 +10,7 @@ import ChartSalesPerMonth from "../components/charts/ChartSalesPerMonth";
 import ProfitExpectation from "../components/charts/ChartProfitExpectation";
 // import ChartOrders from "../components/charts/ChartOrders";
 import CardAverageTicket from "../components/cards/CardAverageTicket";
+import CardAverageMonthly from "../components/cards/CardAverageMonthly";
 
 function Home() {
   return (
@@ -24,6 +25,7 @@ function Home() {
           <Flex flexDirection="column">
             <Carousel name="Inicio">
               <CardAverageTicket />
+              <CardAverageMonthly />
             </Carousel>
             <Carousel name="Dashboard de vendas">
               <ChartSalesPerMonth />
