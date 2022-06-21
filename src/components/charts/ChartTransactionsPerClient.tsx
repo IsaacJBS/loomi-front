@@ -1,25 +1,28 @@
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 import CardChart from "../commons/CardChart";
 import axios from "../../api/axios";
 import CustomSpinner from "../../helpers/CustomSpinner";
+// import currencyConverter from "../../utils/currencyConverter";
 
 const url = "/users-resume";
 
-function ChartGender() {
+function ChartTransactionPerClient() {
   const [loading, setLoading] = useState(false);
-  const [series, setSeries] = useState<any>();
+  const [transactionsValues, setTransactionsValues] = useState<any>();
 
-  async function getSessionsPerGender() {
+  async function getTransactions() {
+    const newTransaction: string[] = [];
     try {
-      const gender = [];
       setLoading(true);
       const response = await axios.get(url);
       const dataResponse = await response.data;
-      const sessionsPerGender = dataResponse["sessions-per-sex"];
-      gender.push(sessionsPerGender.male);
-      gender.push(sessionsPerGender.female);
-      setSeries(gender);
+      const transactions = dataResponse["transactions-per-client-type"];
+      transactions.map((transaction: any) => {
+        newTransaction.push(transaction.value);
+      });
+      setTransactionsValues(newTransaction);
     } catch (error: any) {
       throw new Error(error);
     } finally {
@@ -28,23 +31,23 @@ function ChartGender() {
   }
 
   useEffect(() => {
-    getSessionsPerGender();
+    getTransactions();
   }, []);
 
   return (
-    <CardChart select={false} title="Sessões por gênero">
+    <CardChart select={false} title="Transações por tipo de cliente">
       {loading ? (
         <CustomSpinner size="sm" />
       ) : (
         <Chart
           options={{
-            labels: ["Masculino", "Feminino"],
+            labels: ["Novo cliente", "Cliente retornando"],
             dataLabels: {
               enabled: false,
             },
-            colors: ["#F7C982", "#393C56"],
+            colors: ["#9FD8D5", "#7BB686"],
           }}
-          series={series}
+          series={transactionsValues}
           type="donut"
           width={450}
           height={300}
@@ -54,4 +57,4 @@ function ChartGender() {
   );
 }
 
-export default ChartGender;
+export default ChartTransactionPerClient;
