@@ -1,8 +1,33 @@
 import React from "react";
 import { Flex, Box, Text } from "@chakra-ui/react";
 import Tag from "./Tag";
+import CustomSpinner from "../../helpers/CustomSpinner";
 
-function Card() {
+interface IProps {
+  title: string;
+  text: string;
+  overdue: boolean;
+  bold: boolean;
+  semiBold: boolean;
+  value: string | number;
+  secondValue: string | number;
+  tag: string;
+  loading: boolean;
+  percent: boolean;
+}
+
+function Card({
+  title,
+  text,
+  overdue,
+  bold,
+  semiBold,
+  value,
+  secondValue,
+  tag,
+  loading,
+  percent,
+}: IProps) {
   return (
     <Flex>
       <Box
@@ -13,21 +38,33 @@ function Card() {
         backgroundColor="bgWhite"
         boxShadow="sm"
       >
-        <Text fontFamily="body" fontWeight="bold">
-          Ticket médio últimas 24h{" "}
-        </Text>
-        <Tag color="#109E8E" text="+ 15%" />
-        <Text color="#109E8E" mt={2}>
-          em relação a ontem
-        </Text>
-        <Flex mt={3} gap={3}>
-          <Text fontFamily="body" fontWeight="semi-bold">
-            R$
-          </Text>
-          <Text fontFamily="body" fontWeight="bold">
-            9.292,00
-          </Text>
-        </Flex>
+        {loading && <CustomSpinner size="sm" />}
+        {!loading && (
+          <>
+            <Text fontFamily="body" fontWeight="bold">
+              {title}
+            </Text>
+            <Tag
+              color={overdue ? "#D6628E" : "#109E8E"}
+              text={tag}
+              percent={percent}
+            />
+            <Text color={overdue ? "#D6628E" : "#109E8E"} mt={2}>
+              {text}
+            </Text>
+            <Flex mt={3} gap={3}>
+              <Text
+                fontFamily="body"
+                fontWeight={semiBold ? "semi-bold" : "bold"}
+              >
+                {value}
+              </Text>
+              <Text fontFamily="body" fontWeight={bold ? "bold" : "semi-bold"}>
+                {secondValue}
+              </Text>
+            </Flex>
+          </>
+        )}
       </Box>
     </Flex>
   );

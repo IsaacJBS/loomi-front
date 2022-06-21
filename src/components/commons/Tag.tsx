@@ -4,9 +4,10 @@ import { Text } from "@chakra-ui/react";
 interface IProps {
   text: string;
   color: string;
+  percent: boolean;
 }
 
-function Tag({ text, color }: IProps) {
+function Tag({ text, color, percent }: IProps) {
   return (
     <Text
       mt={2}
@@ -17,7 +18,7 @@ function Tag({ text, color }: IProps) {
       borderRadius="15px"
       textColor={color}
     >
-      {text}
+      {percent ? `+ ${text} %` : `há ${text} dias`}
     </Text>
   );
 }
