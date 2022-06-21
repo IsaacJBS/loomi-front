@@ -23,8 +23,8 @@ function ChartOrders() {
         return ordersMade.push(item.value);
       });
       setMade(ordersMade);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      throw new Error(error);
     }
   }
 
@@ -38,8 +38,10 @@ function ChartOrders() {
       });
       setCancelled(cancelledOrders);
       setLoading(false);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      throw new Error(error);
+    } finally {
+      setLoading(false);
     }
   }
 

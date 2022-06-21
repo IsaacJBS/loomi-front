@@ -19,9 +19,10 @@ function CardAverageTicket() {
       const formmatedValue = currencyConverter(value);
       setValues(formmatedValue);
       setGrowths(growth);
+    } catch (error: any) {
+      throw new Error(error);
+    } finally {
       setLoading(false);
-    } catch (error) {
-      console.log(error);
     }
   }
 

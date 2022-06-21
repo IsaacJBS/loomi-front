@@ -26,8 +26,10 @@ function ChartSalesPerMonth() {
       });
       setData(value);
       setLoading(false);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      throw new Error(error);
+    } finally {
+      setLoading(false);
     }
   }
 
