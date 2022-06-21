@@ -51,7 +51,7 @@ function ProfitExpectation() {
   }, []);
 
   return (
-    <CardChart title="Expectativa de lucro x lucro real">
+    <CardChart select title="Expectativa de lucro x lucro real">
       {loading ? (
         <CustomSpinner size="sm" />
       ) : (

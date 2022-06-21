@@ -38,7 +38,7 @@ function ChartSalesPerMonth() {
   }, []);
 
   return (
-    <CardChart title="Pedidos por mês">
+    <CardChart select title="Pedidos por mês">
       {loading ? (
         <CustomSpinner size="sm" />
       ) : (
