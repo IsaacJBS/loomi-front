@@ -3,13 +3,14 @@ import Carousel from "../Carousel";
 // import axios from "../../api/axios";
 import CardSessions from "../cards/CardSessions";
 import CardProductsView from "../cards/CardProductsView";
+import CardConversion from "../cards/CardConversion";
 
 function ConversionTunnel() {
-  // const [cards, setCards] = useState();
   return (
     <Carousel name="Funil de conversão">
       <CardSessions />
       <CardProductsView />
+      <CardConversion />
     </Carousel>
   );
 }
