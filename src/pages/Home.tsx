@@ -11,6 +11,7 @@ import ProfitExpectation from "../components/charts/ChartProfitExpectation";
 // import ChartOrders from "../components/charts/ChartOrders";
 import CardAverageTicket from "../components/cards/CardAverageTicket";
 import CardAverageMonthly from "../components/cards/CardAverageMonthly";
+import CardOrdersMonth from "../components/cards/CardOrdersMonth";
 
 function Home() {
   return (
@@ -26,6 +27,7 @@ function Home() {
             <Carousel name="Inicio">
               <CardAverageTicket />
               <CardAverageMonthly />
+              <CardOrdersMonth />
             </Carousel>
             <Carousel name="Dashboard de vendas">
               <ChartSalesPerMonth />
