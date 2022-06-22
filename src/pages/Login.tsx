@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from "react";
 import "@fontsource/nunito-sans";
 import {
@@ -12,20 +13,43 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import axios from "../api/axios";
 import backgroundImg from "../assets/background-img.svg";
 import logo from "../assets/logo.svg";
 import eye from "../assets/eye.svg";
 import eyeSlash from "../assets/eye-slash.svg";
+import CustomSpinner from "../helpers/CustomSpinner";
+
+type FormValues = {
+  email: string;
+  senha: string;
+};
+
+const loginUrl = "/login";
 
 function Login() {
-  const [input, setInput] = useState<string>("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>();
   const [show, setShow] = useState<boolean>(false);
-  const handleClick = () => setShow(!show);
+  const showPassword = () => setShow(!show);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleInputChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => setInput(e.target.value);
-
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    try {
+      setLoading(true);
+      const response = await axios.post(loginUrl, data);
+      const token = response.data;
+      console.log(token);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <Center backgroundImage={backgroundImg} w="100%" h="100vh">
       <Flex
@@ -45,49 +69,65 @@ function Login() {
         >
           Entrar na plataforma
         </Text>
-        <FormControl mt={10} w={400}>
-          <FormLabel fontWeight="normal" ml={4} htmlFor="email">
-            E-mail
-          </FormLabel>
-          <Input
-            id="email"
-            type="email"
-            value={input}
-            onChange={handleInputChange}
-            backgroundColor="brand.700"
-          />
-
-          <FormLabel fontWeight="normal" mt={5} ml={4} htmlFor="email">
-            Senha
-          </FormLabel>
-          <InputGroup size="md">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <FormControl mt={10} w={400}>
+            <FormLabel fontWeight="normal" ml={4} htmlFor="email">
+              E-mail
+            </FormLabel>
             <Input
-              pr="4.5rem"
-              type={show ? "text" : "password"}
-              placeholder="Enter password"
+              id="email"
+              type="email"
               backgroundColor="brand.700"
+              {...register("email", {
+                required: "Por favor, insira um e-mail",
+              })}
             />
-            <InputRightElement width="4.5rem">
-              <Button
-                backgroundColor="transparent"
-                h="1.75rem"
-                size="sm"
-                onClick={handleClick}
-              >
-                {show ? <Image src={eyeSlash} /> : <Image src={eye} />}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-        </FormControl>
-        <Button
-          mt={6}
-          colorScheme="purple"
-          backgroundColor="main"
-          textColor="white"
-          fontWeight="normal"
-        >
-          Entrar
-        </Button>
+            <Text mt={1} fontSize="small" color="warning">
+              {errors.email && errors.email.message}
+            </Text>
+            <FormLabel fontWeight="normal" mt={5} ml={4} htmlFor="email">
+              Senha
+            </FormLabel>
+            <InputGroup size="md">
+              <Input
+                pr="4.5rem"
+                type={show ? "text" : "password"}
+                backgroundColor="brand.700"
+                {...register("senha", {
+                  required: "Por favor, insira uma senha",
+                })}
+              />
+              <InputRightElement width="4.5rem">
+                <Button
+                  backgroundColor="transparent"
+                  h="1.75rem"
+                  size="sm"
+                  onClick={showPassword}
+                >
+                  {show ? <Image src={eyeSlash} /> : <Image src={eye} />}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+            <Text mt={1} fontSize="small" color="warning">
+              {errors.senha && errors.senha.message}
+            </Text>
+          </FormControl>
+          <Flex justifyContent="center" mt={10}>
+            {loading && <CustomSpinner size="sm" />}
+          </Flex>
+          <Flex justifyContent="center" mt={10}>
+            <Button
+              colorScheme="purple"
+              backgroundColor="main"
+              textColor="white"
+              fontWeight="normal"
+              isLoading={isSubmitting}
+              type="submit"
+            >
+              Entrar
+            </Button>
+          </Flex>
+        </form>
       </Flex>
     </Center>
   );

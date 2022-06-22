@@ -10,6 +10,7 @@ const colors = {
   bgWhite: "#FFFFFF",
   title: "#4E5D66",
   secondTitle: "#5A4CA7",
+  warning: "red",
 };
 
 const fonts = {
