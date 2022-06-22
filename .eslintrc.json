@@ -27,7 +27,7 @@
     "react/no-children-prop": "off",
     "react/jsx-no-constructed-context-values": "off",
     "react/jsx-props-no-spreading": "off",
-    "useTabs": "false",
+    "useTabs": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
