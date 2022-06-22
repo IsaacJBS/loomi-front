@@ -5,12 +5,12 @@ import { Box, Flex } from "@chakra-ui/react";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import backgroundImg from "../assets/background-img.svg";
-import TableProducts from "../components/table/TableProducts";
+// import TableProducts from "../components/table/TableProducts";
 
 // import Dashboard from "../components/sections/Dashboard";
 // import ConversionTunnel from "../components/sections/ConversionTunnel";
 // import Beginning from "../components/sections/Beginning";
-// import UserPerfil from "../components/sections/UserPerfil";
+import UserPerfil from "../components/sections/UserPerfil";
 
 function Home() {
   return (
@@ -24,9 +24,10 @@ function Home() {
           <SideBar />
           <Flex flexDirection="column">
             {/* <Beginning />
-            <Dashboard />
-            <ConversionTunnel /> */}
-            <TableProducts />
+            <Dashboard /> */}
+            {/* <ConversionTunnel /> */}
+            <UserPerfil />
+            {/* <TableProducts /> */}
           </Flex>
         </Flex>
       </Box>

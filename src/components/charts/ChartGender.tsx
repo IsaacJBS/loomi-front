@@ -1,36 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Chart from "react-apexcharts";
 import CardChart from "../commons/CardChart";
-import axios from "../../api/axios";
 import CustomSpinner from "../../helpers/CustomSpinner";
 
-const url = "/users-resume";
+interface IGender {
+  series: number[];
+  loading: boolean;
+}
 
-function ChartGender() {
-  const [loading, setLoading] = useState(false);
-  const [series, setSeries] = useState<any>();
-
-  async function getSessionsPerGender() {
-    try {
-      const gender = [];
-      setLoading(true);
-      const response = await axios.get(url);
-      const dataResponse = await response.data;
-      const sessionsPerGender = dataResponse["sessions-per-sex"];
-      gender.push(sessionsPerGender.male);
-      gender.push(sessionsPerGender.female);
-      setSeries(gender);
-    } catch (error: any) {
-      throw new Error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    getSessionsPerGender();
-  }, []);
-
+function ChartGender({ series, loading }: IGender) {
   return (
     <CardChart select={false} title="Sessões por gênero">
       {loading ? (
