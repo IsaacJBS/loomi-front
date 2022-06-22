@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
 import "@fontsource/ubuntu";
@@ -17,24 +18,35 @@ import {
 } from "@chakra-ui/react";
 import axios from "../../api/axios";
 import Rows from "./Rows";
-
-const productsUrl = "/products?page=2&limit=10";
+import Pagination from "../commons/Pagination";
 
 function TableProducts() {
   const [products, setProducts] = useState([]);
+  const [actualPage, setActualPage] = useState<number>(1);
+  const [search, setSearch] = useState<string>("");
+
+  function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(e.target.value);
+  }
 
   async function getAllProducts() {
     try {
-      const response = await axios.get(productsUrl);
+      const response = await axios.get(
+        `/products?page=${actualPage}&limit=10&search=${search}`
+      );
       setProducts(response.data);
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error("An error occurred");
     }
   }
 
   useEffect(() => {
     getAllProducts();
-  }, []);
+  }, [search]);
+
+  useEffect(() => {
+    getAllProducts();
+  }, [actualPage]);
 
   return (
     <Box w="85vw" p={10} bgColor="bgWhite">
@@ -44,7 +56,7 @@ function TableProducts() {
         </Heading>
         <InputGroup w="300">
           <InputRightElement children={<SearchIcon color="black" />} />
-          <Input bgColor="brand.700" />
+          <Input onChange={handleSearch} bgColor="brand.700" />
         </InputGroup>
       </Flex>
       <TableContainer w="85vw" bgColor="white">
@@ -79,6 +91,9 @@ function TableProducts() {
             })}
           </Tbody>
         </Table>
+        <Flex justifyContent="right">
+          <Pagination actualPage={actualPage} setActualPage={setActualPage} />
+        </Flex>
       </TableContainer>
     </Box>
   );

@@ -18,7 +18,7 @@ function CardOrdersMonth() {
       setValues(value);
       setGrowths(growth);
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error("An error occurred");
     } finally {
       setLoading(false);
     }

@@ -1,34 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "../commons/Card";
-import axios from "../../api/axios";
+import IConversions from "../../interfaces/IConversions";
 
-const conversionUrl = "/conversions-resume";
-
-function CardProductsView() {
-  const [values, setValues] = useState<string>("");
-  const [growths, setGrowths] = useState<string>("");
-
-  const [loading, setLoading] = useState<boolean>(false);
-
-  async function getData() {
-    try {
-      setLoading(true);
-      const response = await axios.get(conversionUrl);
-      const responseData = Object.values(response.data);
-      const formatted: any = responseData[1];
-      setValues(formatted.value);
-      setGrowths(formatted.growth);
-    } catch (error: any) {
-      throw new Error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+function CardProductsView({ value, growth, loading }: IConversions) {
   return (
     <Card
       title="Visualizações de produto"
@@ -36,9 +10,9 @@ function CardProductsView() {
       overdue={false}
       bold={false}
       semiBold={false}
-      value={values}
+      value={value}
       percent
-      tag={growths}
+      tag={growth}
       secondValue="visualizações"
       loading={loading}
     />
