@@ -11,35 +11,43 @@ import axios from "../../api/axios";
 
 const conversionUrl = "/conversions-resume";
 
+type IConversionTunnel = string;
+
 function ConversionTunnel() {
   const [loading, setLoading] = useState<boolean>(false);
 
-  const [cardSessionValue, setCardSessionValue] = useState<string>("");
-  const [cardSessionGrowth, setCardSessionGrowth] = useState<string>("");
+  const [cardSessionValue, setCardSessionValue] =
+    useState<IConversionTunnel>("");
+  const [cardSessionGrowth, setCardSessionGrowth] =
+    useState<IConversionTunnel>("");
 
   const [conversionPerMonthValue, setConversionPerMonthValue] =
-    useState<string>("");
+    useState<IConversionTunnel>("");
   const [conversionPerMonthGrowth, setConversionPerMonthGrowth] =
-    useState<string>("");
+    useState<IConversionTunnel>("");
 
   const [checkoutShippingValue, setCheckoutShippingValue] =
-    useState<string>("");
+    useState<IConversionTunnel>("");
   const [checkoutShippingGrowth, setCheckoutShippingGrowth] =
-    useState<string>("");
+    useState<IConversionTunnel>("");
 
-  const [addToCartValue, setAddToCartValue] = useState<string>("");
-  const [addToCartGrowth, setAddToCartGrowth] = useState<string>("");
+  const [addToCartValue, setAddToCartValue] = useState<IConversionTunnel>("");
+  const [addToCartGrowth, setAddToCartGrowth] = useState<IConversionTunnel>("");
 
-  const [checkoutEmailValue, setCheckoutEmailValue] = useState<string>("");
-  const [checkoutEmailGrowth, setCheckoutEmailGrowth] = useState<string>("");
+  const [checkoutEmailValue, setCheckoutEmailValue] =
+    useState<IConversionTunnel>("");
+  const [checkoutEmailGrowth, setCheckoutEmailGrowth] =
+    useState<IConversionTunnel>("");
 
   const [checkoutRegistrationValue, setCheckoutRegistrationValue] =
-    useState<string>("");
+    useState<IConversionTunnel>("");
   const [checkoutRegistrationGrowth, setCheckoutRegistrationGrowth] =
-    useState<string>("");
+    useState<IConversionTunnel>("");
 
-  const [productsViewValue, setProductsViewValue] = useState<string>("");
-  const [productsViewGrowth, setProductsViewGrowth] = useState<string>("");
+  const [productsViewValue, setProductsViewValue] =
+    useState<IConversionTunnel>("");
+  const [productsViewGrowth, setProductsViewGrowth] =
+    useState<IConversionTunnel>("");
 
   async function fetchAllConversionTunnelData() {
     try {
