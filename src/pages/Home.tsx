@@ -18,12 +18,6 @@ function Home() {
   return (
     <Box bgImage={backgroundImg}>
       <Box>
-        {/* {loadingPage ? (
-          <Center w="100%" h="100vh">
-            <CustomSpinner size="lg" />
-          </Center>
-        ) : (
-          <> */}
         <Header />
         <Flex gap={10} mt={10}>
           <SideBar />
@@ -35,8 +29,6 @@ function Home() {
             <TableProducts />
           </Flex>
         </Flex>
-        {/* </>
-        )} */}
       </Box>
     </Box>
   );
