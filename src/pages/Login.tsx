@@ -14,12 +14,12 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
 import backgroundImg from "../assets/background-img.svg";
 import logo from "../assets/logo.svg";
 import eye from "../assets/eye.svg";
 import eyeSlash from "../assets/eye-slash.svg";
-import CustomSpinner from "../helpers/CustomSpinner";
 import { useAuth } from "../context/auth";
 
 type FormValues = {
@@ -37,19 +37,20 @@ function Login() {
   } = useForm<FormValues>();
   const [show, setShow] = useState<boolean>(false);
   const showPassword = () => setShow(!show);
-  const [loading, setLoading] = useState<boolean>(false);
   const { setToken } = useAuth();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      setLoading(true);
       const response = await axios.post(loginUrl, data);
-      const token = response.data["access-token"];
-      setToken(token);
+      if (response.status === 201) {
+        const token = response.data["access-token"];
+        setToken(token);
+        navigate("/home");
+      }
+      return;
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
   return (
@@ -114,9 +115,6 @@ function Login() {
               {errors.senha && errors.senha.message}
             </Text>
           </FormControl>
-          <Flex justifyContent="center" mt={10}>
-            {loading && <CustomSpinner size="sm" />}
-          </Flex>
           <Flex justifyContent="center" mt={10}>
             <Button
               colorScheme="purple"
