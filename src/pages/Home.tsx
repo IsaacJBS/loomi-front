@@ -8,9 +8,9 @@ import backgroundImg from "../assets/background-img.svg";
 // import TableProducts from "../components/table/TableProducts";
 
 // import Dashboard from "../components/sections/Dashboard";
-// import ConversionTunnel from "../components/sections/ConversionTunnel";
+import ConversionTunnel from "../components/sections/ConversionTunnel";
 // import Beginning from "../components/sections/Beginning";
-import UserPerfil from "../components/sections/UserPerfil";
+// import UserPerfil from "../components/sections/UserPerfil";
 
 function Home() {
   return (
@@ -25,8 +25,8 @@ function Home() {
           <Flex flexDirection="column">
             {/* <Beginning />
             <Dashboard /> */}
-            {/* <ConversionTunnel /> */}
-            <UserPerfil />
+            <ConversionTunnel />
+            {/* <UserPerfil /> */}
             {/* <TableProducts /> */}
           </Flex>
         </Flex>

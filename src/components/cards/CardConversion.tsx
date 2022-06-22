@@ -1,34 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "../commons/Card";
-import axios from "../../api/axios";
+import IConversions from "../../interfaces/IConversions";
 
-const conversionUrl = "/conversions-resume";
-
-function CardConversion() {
-  const [values, setValues] = useState<string>("");
-  const [growths, setGrowths] = useState<string>("");
-
-  const [loading, setLoading] = useState<boolean>(false);
-
-  async function getData() {
-    try {
-      setLoading(true);
-      const response = await axios.get(conversionUrl);
-      const responseData = Object.values(response.data);
-      const formatted: any = responseData[2];
-      setValues(formatted.value);
-      setGrowths(formatted.growth);
-    } catch (error: any) {
-      throw new Error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+function CardConversion({ value, growth, loading }: IConversions) {
   return (
     <Card
       title="Conversão para a página de produtos"
@@ -36,9 +10,9 @@ function CardConversion() {
       overdue
       bold={false}
       semiBold={false}
-      value={values}
+      value={value}
       percent
-      tag={growths}
+      tag={growth}
       secondValue="%"
       loading={loading}
     />

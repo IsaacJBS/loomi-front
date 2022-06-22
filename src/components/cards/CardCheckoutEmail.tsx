@@ -2,10 +2,10 @@ import React from "react";
 import Card from "../commons/Card";
 import IConversions from "../../interfaces/IConversions";
 
-function CardCheckoutRegistration({ value, growth, loading }: IConversions) {
+function CardCheckoutEmail({ value, growth, loading }: IConversions) {
   return (
     <Card
-      title="Checkout - Cadastro"
+      title="Checkout - E-mail"
       text="em relação a julho"
       overdue={false}
       bold={false}
@@ -13,10 +13,10 @@ function CardCheckoutRegistration({ value, growth, loading }: IConversions) {
       value={value}
       percent
       tag={growth}
-      secondValue="usuários"
+      secondValue="produtos"
       loading={loading}
     />
   );
 }
 
-export default CardCheckoutRegistration;
+export default CardCheckoutEmail;
