@@ -20,6 +20,7 @@ import logo from "../assets/logo.svg";
 import eye from "../assets/eye.svg";
 import eyeSlash from "../assets/eye-slash.svg";
 import CustomSpinner from "../helpers/CustomSpinner";
+import { useAuth } from "../context/auth";
 
 type FormValues = {
   email: string;
@@ -37,13 +38,14 @@ function Login() {
   const [show, setShow] = useState<boolean>(false);
   const showPassword = () => setShow(!show);
   const [loading, setLoading] = useState<boolean>(false);
+  const { setToken } = useAuth();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       setLoading(true);
       const response = await axios.post(loginUrl, data);
-      const token = response.data;
-      console.log(token);
+      const token = response.data["access-token"];
+      setToken(token);
     } catch (error) {
       console.log(error);
     } finally {
