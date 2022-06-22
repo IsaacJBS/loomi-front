@@ -8,8 +8,8 @@ import backgroundImg from "../assets/background-img.svg";
 // import TableProducts from "../components/table/TableProducts";
 
 // import Dashboard from "../components/sections/Dashboard";
-import ConversionTunnel from "../components/sections/ConversionTunnel";
-// import Beginning from "../components/sections/Beginning";
+// import ConversionTunnel from "../components/sections/ConversionTunnel";
+import Beginning from "../components/sections/Beginning";
 // import UserPerfil from "../components/sections/UserPerfil";
 
 function Home() {
@@ -23,9 +23,9 @@ function Home() {
         <Flex gap={10} mt={10}>
           <SideBar />
           <Flex flexDirection="column">
-            {/* <Beginning />
-            <Dashboard /> */}
-            <ConversionTunnel />
+            <Beginning />
+            {/* <Dashboard /> */}
+            {/* <ConversionTunnel /> */}
             {/* <UserPerfil /> */}
             {/* <TableProducts /> */}
           </Flex>
