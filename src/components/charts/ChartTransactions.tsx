@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 import CardChart from "../commons/CardChart";

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { createContext, useContext } from "react";
 import { useLocalStorage } from "react-use";
 
