@@ -1,38 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Chart from "react-apexcharts";
 import CardChart from "../commons/CardChart";
-import axios from "../../api/axios";
 import CustomSpinner from "../../helpers/CustomSpinner";
-// import currencyConverter from "../../utils/currencyConverter";
 
-const url = "/users-resume";
+interface ITransactionPerClient {
+  transactionsValues: number[];
+  loading: boolean;
+}
 
-function ChartTransactionPerClient() {
-  const [loading, setLoading] = useState(false);
-  const [transactionsValues, setTransactionsValues] = useState<any>();
-
-  async function getTransactions() {
-    const newTransaction: string[] = [];
-    try {
-      setLoading(true);
-      const response = await axios.get(url);
-      const dataResponse = await response.data;
-      const transactions = dataResponse["transactions-per-client-type"];
-      transactions.map((transaction: any) => {
-        newTransaction.push(transaction.value);
-      });
-      setTransactionsValues(newTransaction);
-    } catch (error: any) {
-      throw new Error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    getTransactions();
-  }, []);
-
+function ChartTransactionPerClient({
+  transactionsValues,
+  loading,
+}: ITransactionPerClient) {
   return (
     <CardChart select={false} title="Transações por tipo de cliente">
       {loading ? (

@@ -2,7 +2,7 @@ import React from "react";
 import { Spinner } from "@chakra-ui/react";
 
 interface IProps {
-  size: string;
+  size: "sm" | "md" | "lg" | "xl" | "xs";
 }
 
 function CustomSpinner({ size }: IProps) {
