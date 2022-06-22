@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
 import "@fontsource/ubuntu";
@@ -22,15 +23,26 @@ import Pagination from "../commons/Pagination";
 function TableProducts() {
   const [products, setProducts] = useState([]);
   const [actualPage, setActualPage] = useState<number>(1);
+  const [search, setSearch] = useState<string>("");
+
+  function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(e.target.value);
+  }
 
   async function getAllProducts() {
     try {
-      const response = await axios.get(`/products?page=${actualPage}&limit=10`);
+      const response = await axios.get(
+        `/products?page=${actualPage}&limit=10&search=${search}`
+      );
       setProducts(response.data);
     } catch (error: any) {
       throw new Error("An error occurred");
     }
   }
+
+  useEffect(() => {
+    getAllProducts();
+  }, [search]);
 
   useEffect(() => {
     getAllProducts();
@@ -44,7 +56,7 @@ function TableProducts() {
         </Heading>
         <InputGroup w="300">
           <InputRightElement children={<SearchIcon color="black" />} />
-          <Input bgColor="brand.700" />
+          <Input onChange={handleSearch} bgColor="brand.700" />
         </InputGroup>
       </Flex>
       <TableContainer w="85vw" bgColor="white">
