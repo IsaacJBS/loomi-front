@@ -85,7 +85,7 @@ function ConversionTunnel() {
       setProductsViewValue(productsView.value);
       setProductsViewGrowth(productsView.growth);
     } catch (error) {
-      console.log(error);
+      throw new Error("An error occurred");
     } finally {
       setLoading(false);
     }

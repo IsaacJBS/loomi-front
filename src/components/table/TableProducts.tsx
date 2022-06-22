@@ -28,7 +28,7 @@ function TableProducts() {
       const response = await axios.get(productsUrl);
       setProducts(response.data);
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error("An error occurred");
     }
   }
 

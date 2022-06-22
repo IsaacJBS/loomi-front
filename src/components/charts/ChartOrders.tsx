@@ -24,7 +24,7 @@ function ChartOrders() {
       });
       setMade(ordersMade);
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error("An error occurred");
     }
   }
 
@@ -39,7 +39,7 @@ function ChartOrders() {
       setCancelled(cancelledOrders);
       setLoading(false);
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error("An error occurred");
     } finally {
       setLoading(false);
     }

@@ -25,7 +25,7 @@ function ProfitExpectation() {
       });
       setProfit(valuesProfit);
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error("An error occurred");
     }
   }
 
@@ -39,7 +39,7 @@ function ProfitExpectation() {
       });
       setReal(valuesReal);
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error("An error occurred");
     } finally {
       setLoading(false);
     }
