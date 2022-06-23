@@ -35,7 +35,7 @@ function TableProducts() {
         `/products?page=${actualPage}&limit=10&search=${search}`
       );
       setProducts(response.data);
-    } catch (error: any) {
+    } catch (error) {
       throw new Error("An error occurred");
     }
   }

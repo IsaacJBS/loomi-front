@@ -46,7 +46,7 @@ function UserPerfil() {
         newTransaction.push(transaction.value);
       });
       setTransactionsValues(newTransaction);
-    } catch (error: any) {
+    } catch (error) {
       throw new Error("An error occurred");
     } finally {
       setLoading(false);

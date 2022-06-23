@@ -17,7 +17,7 @@ function CardOrdersMonth() {
       const { value, growth } = response.data;
       setValues(value);
       setGrowths(growth);
-    } catch (error: any) {
+    } catch (error) {
       throw new Error("An error occurred");
     } finally {
       setLoading(false);

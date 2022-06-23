@@ -38,7 +38,7 @@ function ProfitExpectation() {
         return valuesReal.push(item.value);
       });
       setReal(valuesReal);
-    } catch (error: any) {
+    } catch (error) {
       throw new Error("An error occurred");
     } finally {
       setLoading(false);

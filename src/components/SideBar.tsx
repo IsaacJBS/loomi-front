@@ -13,8 +13,6 @@ import home from "../assets/home.svg";
 
 import CustomSidebarButton from "./commons/SidebarButton";
 
-// type Props = {}
-
 function SideBar() {
   return (
     <Flex

@@ -38,7 +38,7 @@ function ChartOrders() {
       });
       setCancelled(cancelledOrders);
       setLoading(false);
-    } catch (error: any) {
+    } catch (error) {
       throw new Error("An error occurred");
     } finally {
       setLoading(false);
