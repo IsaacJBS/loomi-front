@@ -31,7 +31,7 @@ function Alerts() {
   }, []);
 
   return (
-    <Flex>
+    <Flex flexWrap="wrap">
       {alerts.map((alert: IAlerts) => (
         <Card
           title={alert.type}

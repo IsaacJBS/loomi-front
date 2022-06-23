@@ -56,7 +56,11 @@ function TableProducts() {
         </Heading>
         <InputGroup w="300">
           <InputRightElement children={<SearchIcon color="black" />} />
-          <Input onChange={handleSearch} bgColor="brand.700" />
+          <Input
+            placeholder="Buscar Produtos"
+            onChange={handleSearch}
+            bgColor="brand.700"
+          />
         </InputGroup>
       </Flex>
       <TableContainer w="85vw" bgColor="white">
