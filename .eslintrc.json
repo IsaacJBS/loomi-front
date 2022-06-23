@@ -21,7 +21,12 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-filename-extension": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "import/no-named-as-default": "off",
     "array-callback-return": "off",
     "react/no-children-prop": "off",
