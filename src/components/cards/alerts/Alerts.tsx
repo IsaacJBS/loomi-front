@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Flex } from "@chakra-ui/react";
 import axios from "../../../api/axios";
 import Card from "../../commons/Card";
 
@@ -28,9 +29,10 @@ function Alerts() {
   useEffect(() => {
     getAlerts();
   }, []);
+
   return (
-    <>
-      {alerts.map((alert: IAlerts) => {
+    <Flex>
+      {alerts.map((alert: IAlerts) => (
         <Card
           title={alert.type}
           text=""
@@ -39,12 +41,12 @@ function Alerts() {
           semiBold
           value={alert.value}
           secondValue="produtos"
-          tag="há 20 dias"
+          tag="20"
           loading={loading}
           percent={false}
-        />;
-      })}
-    </>
+        />
+      ))}
+    </Flex>
   );
 }
 
