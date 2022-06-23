@@ -35,7 +35,7 @@ function Alerts() {
       {alerts.map((alert: IAlerts) => (
         <Card
           title={alert.type}
-          text=""
+          text="Urgente"
           overdue
           bold={false}
           semiBold

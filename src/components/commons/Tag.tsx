@@ -14,7 +14,8 @@ function Tag({ text, color, percent }: IProps) {
       p={1}
       fontSize="12px"
       boxShadow="base"
-      maxW={12}
+      w="70px"
+      textAlign="center"
       borderRadius="15px"
       textColor={color}
     >
