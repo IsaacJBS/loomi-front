@@ -1,5 +1,5 @@
 import React from "react";
-import { Tr, Td, Flex, Image, Text } from "@chakra-ui/react";
+import { Tr, Td, Flex, Image, Text, Box } from "@chakra-ui/react";
 import image from "../../assets/image.jpg";
 import active from "../../assets/v.svg";
 
@@ -23,8 +23,12 @@ function Rows({ product, color, description, productStatus }: IProps) {
       <Td whiteSpace="pre-wrap">{description}</Td>
       <Td>
         <Flex alignItems="center">
-          <Text>{productStatus}</Text>
-          <Image src={active} alt="v" />
+          <Box w="90px">
+            <Text>{productStatus}</Text>
+          </Box>
+          <Box>
+            <Image src={active} alt="v" />
+          </Box>
         </Flex>
       </Td>
     </Tr>
