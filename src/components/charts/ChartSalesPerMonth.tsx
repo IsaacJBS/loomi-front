@@ -55,6 +55,7 @@ function ChartSalesPerMonth() {
           }}
           series={[
             {
+              name: "Pedidos",
               data,
             },
           ]}

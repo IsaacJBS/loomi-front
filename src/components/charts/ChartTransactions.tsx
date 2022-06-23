@@ -43,6 +43,7 @@ function ChartTransactions({ age, data, loading }: ITransactions) {
           }}
           series={[
             {
+              name: "Transações",
               data,
             },
           ]}
