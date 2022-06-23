@@ -38,7 +38,7 @@ function Alerts() {
           text="Urgente"
           overdue
           bold={false}
-          semiBold
+          semiBold={false}
           value={alert.value}
           secondValue="produtos"
           tag="20"
